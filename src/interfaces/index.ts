@@ -11,6 +11,10 @@ export interface IProduct {
    }
 }
 
+export interface IProductList {
+   products: Array<IProduct>
+}
+
 export interface ICartItem {
    id: number;
    title: string;
