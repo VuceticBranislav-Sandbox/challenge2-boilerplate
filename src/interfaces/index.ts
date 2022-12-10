@@ -35,3 +35,13 @@ export interface ICartItem {
    image: string;
    quantity:number;
 }
+
+export interface ISearchData {
+   priceMin: number;
+   priceMax: number;
+   priceLimit: number;
+   category : string;
+   search: string;
+   sortType: string[];
+   sort: string;
+ }

@@ -1,7 +1,8 @@
-import { ratingClasses } from "@mui/material";
 import { IProductDetails } from "interfaces";
+import ProductDetailsCart from "../ProductDetailsCart";
 import ProductDetailsCategory from "../ProductDetailsCategory";
 import ProductDetailsDescription from "../ProductDetailsDescription";
+import ProductDetailsFavorite from "../ProductDetailsFavorite";
 import ProductDetailsImage from "../ProductDetailsImage";
 import ProductDetailsPrice from "../ProductDetailsPrice";
 import ProductDetailsRating from "../ProductDetailsRating";
@@ -27,6 +28,8 @@ const ProductDetailsCard = ({
         <ProductDetailsPrice price={price}/>
         <ProductDetailsRating rate={rating.rate} count={rating.count}></ProductDetailsRating>
         <ProductDetailsDescription description={description}/>
+        <ProductDetailsFavorite/>
+        <ProductDetailsCart/>
       </div>
   );
 };
