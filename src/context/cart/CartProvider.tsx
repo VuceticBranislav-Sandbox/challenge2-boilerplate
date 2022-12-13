@@ -3,7 +3,8 @@ import { CartContext } from "./CartContext";
 import { cartReducer } from "./CartReducer";
 import { ICartItem } from "interfaces";
 
-type PaymentMathodType = "cash_delivery" | "bank_transfer" | "paypal";
+export type PaymentMathodType = "cash_delivery" | "bank_transfer" | "paypal";
+export const PaymentMathodEnym = ["cash_delivery", "bank_transfer", "paypal"];
 
 export interface CartState {
   items: ICartItem[];
@@ -51,7 +52,7 @@ export const CartProvider = ({ children }: props) => {
     else {
       dispatch({
         type: "addToCart",
-        payload: item,
+        payload: {...item, quantity: amount},
       });     
       updateAmount();       
     }    

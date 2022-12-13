@@ -6,7 +6,7 @@ import { CartContext } from "context/cart/CartContext";
 import { ICartItem } from "interfaces";
 
 const CartButton = ({item, amount}: {item: ICartItem, amount: number}) => { 
-  const { cartState, addToCart } = useContext(CartContext);
+  const { addToCart } = useContext(CartContext);
   
   const handleOnChange = () => {
     addToCart(item, amount);

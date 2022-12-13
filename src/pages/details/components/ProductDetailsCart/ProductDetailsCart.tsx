@@ -7,18 +7,17 @@ import { ICartItem } from "interfaces";
 
 const ProductDetailsCart = ({item}: {item: ICartItem}) => {
   const [amount, setAmount] = useState(item.quantity);
-  const [inputAmount, setInputAmount] = useState(item.quantity);
 
   const list = ['1', '3', '6', '9'];
 
   const handleOnChange = (event: any, newValue: string) => {
-    let value = limitValue(parseInt(newValue));
+    let value = limitValue(parseInt(newValue));    
     setAmount(value);    
   };  
 
   const handleOnInputChange = (event: any, newValue: string | null) => {
     let value = limitValue(parseInt(newValue ?? '1'));
-    setInputAmount(value);    
+    setAmount(value);    
   }; 
 
   const limitValue = (value: number) => {
@@ -40,7 +39,7 @@ const ProductDetailsCart = ({item}: {item: ICartItem}) => {
         options={list.map((option) => option)}
         renderInput={(params) => <TextField {...params} label="Amount" />}
         onChange = {handleOnChange}
-        inputValue={inputAmount.toString()}
+        inputValue={amount.toString()}
         onInputChange={handleOnInputChange}
       />
     </div>
