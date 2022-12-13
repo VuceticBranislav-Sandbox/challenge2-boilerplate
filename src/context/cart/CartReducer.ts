@@ -6,7 +6,8 @@ type CartAction =
   | { type: "addToCart"; payload: ICartItem }
   | { type: "removeFromCart"; payload: number }
   | { type: "updateQuantity"; payload: ICartItem[] }
-  | { type: "amountUpdate" };
+  | { type: "amountUpdate" }
+  | { type: "updateQuantityAdv"; payload: ICartItem[] };
 
 export const cartReducer = (
   state: CartState,
@@ -32,7 +33,6 @@ export const cartReducer = (
         items: state.items.filter((item) => item.id !== action.payload),
       };
 
-
     case "updateQuantity":
       return {
         ...state,
@@ -43,9 +43,21 @@ export const cartReducer = (
       const total = state.items
         .reduce((acc, item) => acc + item.price * item.quantity, 0)
         .toFixed(2);
+      const flatRate = Number(total) * state.tax / 100;
+      const shipping = state.items.length * state.shippingPrice;
+      const totalPrice = shipping + flatRate + Number(total);
       return {
         ...state,
         amount: Number(total),
+        shipping: shipping,
+        flatRate: flatRate,
+        total: totalPrice
+      };
+
+    case "updateQuantityAdv":
+      return {
+        ...state,
+        items: action.payload,
       };
 
     default:

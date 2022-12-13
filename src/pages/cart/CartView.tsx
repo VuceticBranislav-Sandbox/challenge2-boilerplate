@@ -2,7 +2,6 @@ import { useContext } from "react";
 import { AppLayout } from "components/Layouts";
 import Headline from "components/Headline";
 import styles from "./styles.module.css";
-import fakedata from "fakedata";
 import { CartContext } from "context/cart/CartContext";
 import CartItem from "./components/CartItem";
 import CartTotals from "./components/CartTotals";
@@ -10,8 +9,6 @@ import Button from "components/Button";
 
 const CartView = () => {
   const { cartState, removeCartItem } = useContext(CartContext);
-
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { items } = cartState;
   
   return (
@@ -19,17 +16,11 @@ const CartView = () => {
       <Headline title="Cart" />
       <div className={styles.cartPage}>
         <div className={styles.cartItems}>
-          {fakedata
-            .map((item) => ({ ...item, quantity: 1 }))
-            .map((item) => {
-              return (
-                <CartItem
+          {items.map( item => <CartItem
                   key={item.id}
                   {...item}
                   removeHandler={removeCartItem}
-                />
-              );
-            })}
+                />)}
         </div>
         <div className={styles.cartTotalWrapp}>
           <CartTotals />

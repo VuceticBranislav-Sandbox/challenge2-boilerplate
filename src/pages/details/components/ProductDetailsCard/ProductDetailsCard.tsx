@@ -29,7 +29,7 @@ const ProductDetailsCard = ({
         <ProductDetailsRating rate={rating.rate} count={rating.count}></ProductDetailsRating>
         <ProductDetailsDescription description={description}/>
         <ProductDetailsFavorite/>
-        <ProductDetailsCart/>
+        <ProductDetailsCart item={{id: id, title: title, price: price, image: image, quantity: 1}}/>
       </div>
   );
 };

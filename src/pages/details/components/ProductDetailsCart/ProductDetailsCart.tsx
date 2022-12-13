@@ -1,34 +1,38 @@
-import IconButton from "@mui/material/IconButton";
 import styles from "./styles.module.css";
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import { useState } from "react";
 import Autocomplete from "@mui/material/Autocomplete";
 import TextField from "@mui/material/TextField";
+import CartButton from "./components/CartButton";
+import { ICartItem } from "interfaces";
 
-const ProductDetailsCart = () => {
-  const [amount, setAmount] = useState(1);
-  const [inputAmount, setInputAmount] = useState(1);
+const ProductDetailsCart = ({item}: {item: ICartItem}) => {
+  const [amount, setAmount] = useState(item.quantity);
+  const [inputAmount, setInputAmount] = useState(item.quantity);
 
-  const list = ['1', '2', '5', '10'];
+  const list = ['1', '3', '6', '9'];
 
   const handleOnChange = (event: any, newValue: string) => {
-    let value = parseInt(newValue);
-    if (isNaN(value)) { value = 1; }
+    let value = limitValue(parseInt(newValue));
     setAmount(value);    
   };  
 
   const handleOnInputChange = (event: any, newValue: string | null) => {
-    let value = parseInt(newValue ?? '1');
-    if (isNaN(value)) { value = 1; }
+    let value = limitValue(parseInt(newValue ?? '1'));
     setInputAmount(value);    
-  };  
+  }; 
+
+  const limitValue = (value: number) => {
+    if (isNaN(value)) { value = 1; }
+    if (value > 9) {value = 9}
+    if (value < 1) {value = 1}
+    return value;
+  };
   
   return (
-    <div>
-      <IconButton className={styles.productDetailsCart}>
-        <ShoppingCartIcon  />
-      </IconButton>
+    <div>      
+      <CartButton item={item} amount={amount}/>
       <Autocomplete
+        className={styles.productDetailsCart}
         id="free-solo-demo"
         freeSolo
         disableClearable = {true}
@@ -38,7 +42,7 @@ const ProductDetailsCart = () => {
         onChange = {handleOnChange}
         inputValue={inputAmount.toString()}
         onInputChange={handleOnInputChange}
-      /> 
+      />
     </div>
   );
 };
