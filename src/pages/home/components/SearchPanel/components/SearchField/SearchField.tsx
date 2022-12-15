@@ -15,7 +15,7 @@ const SearchField = () => {
     (async () => {
       setAutocomplete(await productServices.getProductsAutocomplete(searchState));
     })();
-  }, [value, inputValue]); 
+  }, [value, inputValue, searchState]); 
 
   const handleOnInputChange = (event: any, newInputValue: string) => {
     setInputValue(newInputValue);

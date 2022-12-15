@@ -16,7 +16,7 @@ const Details = () => {
     (async () => {
       setProduct(await productServices.getById(parseInt(id as string)).then(json => json.data));
     })();
-  }, []);
+  }, [id]);
 
   return (
     <AppLayout>
