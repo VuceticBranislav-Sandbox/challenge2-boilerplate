@@ -1,25 +1,18 @@
-import styles from "./styles.module.css";
-import { Box, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material";
-import { useContext, useEffect, useState } from "react";
-import productServices from "services/product.services";
-import { SearchContext } from "context/search/SearchContext";
+import styles from "./styles.module.css"
+import { Box, InputLabel, MenuItem, Select, SelectChangeEvent } from "@mui/material"
+import { useContext, useState } from "react"
+import { SearchContext } from "context/search/SearchContext"
+import hooks from "hooks/useRenderingCounter"
 
 const SearchCategory = () => {
-
-  const { searchState, updateCategory } = useContext(SearchContext);
-  const [categories, setCategories] = useState<string[]>([searchState.category]);
-  const [value, setValue] = useState<string>(searchState.category);
-
-  useEffect(() => {
-    (async () => {
-      setCategories(await productServices.getAllCategories());
-    })();
-  }, []);  
+  const categories = hooks.useCategories()
+  const { searchState, updateCategory } = useContext(SearchContext)
+  const [value, setValue] = useState<string>(searchState.category)
 
   const handleChange = (event: SelectChangeEvent) => {
-    setValue(event.target.value as string); 
-    updateCategory(event.target.value as string);
-  };
+    setValue(event.target.value as string)
+    updateCategory(event.target.value as string)
+  }
 
   return (   
     <Box>
@@ -35,8 +28,7 @@ const SearchCategory = () => {
           {categories.map(x => <MenuItem value={x} key={x}>{x}</MenuItem>)}
         </Select>
     </Box>
-  );
-  
-};
+  )  
+}
 
-export default SearchCategory;
+export default SearchCategory
