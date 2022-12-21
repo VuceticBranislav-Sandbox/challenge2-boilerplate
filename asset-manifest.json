@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/challenge2-boilerplate/static/css/main.9bf37fd4.css",
-    "main.js": "/challenge2-boilerplate/static/js/main.8b38d39c.js",
+    "main.js": "/challenge2-boilerplate/static/js/main.f556db90.js",
     "static/js/787.9da8a74a.chunk.js": "/challenge2-boilerplate/static/js/787.9da8a74a.chunk.js",
     "index.html": "/challenge2-boilerplate/index.html",
     "main.9bf37fd4.css.map": "/challenge2-boilerplate/static/css/main.9bf37fd4.css.map",
-    "main.8b38d39c.js.map": "/challenge2-boilerplate/static/js/main.8b38d39c.js.map",
+    "main.f556db90.js.map": "/challenge2-boilerplate/static/js/main.f556db90.js.map",
     "787.9da8a74a.chunk.js.map": "/challenge2-boilerplate/static/js/787.9da8a74a.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.9bf37fd4.css",
-    "static/js/main.8b38d39c.js"
+    "static/js/main.f556db90.js"
   ]
 }
