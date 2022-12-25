@@ -1,32 +1,37 @@
-import styles from "./styles.module.css"
-import { Autocomplete, Box, TextField, createFilterOptions} from "@mui/material"
-import { useContext, useState } from "react"
-import { SearchContext } from "context/search/SearchContext"
-import hooks from "hooks/useRenderingCounter"
+import styles from "./styles.module.css";
+import {
+  Autocomplete,
+  Box,
+  TextField,
+  createFilterOptions,
+} from "@mui/material";
+import { useContext, useState } from "react";
+import { SearchContext } from "context/search/SearchContext";
+import homeHooks from "pages/home/useHomeHooks";
 
 const SearchField = () => {
-  const autocomplete = hooks.useAutocomplete()
-  const { searchState, updateSearch } = useContext(SearchContext)
-  const [value, setValue] = useState<string | null>(searchState.search)
-  const [inputValue, setInputValue] = useState<string>(searchState.search)
+  const autocomplete = homeHooks.useAutocomplete();
+  const { searchState, updateSearch } = useContext(SearchContext);
+  const [value, setValue] = useState<string | null>(searchState.search);
+  const [inputValue, setInputValue] = useState<string>(searchState.search);
 
   const handleOnInputChange = (event: any, newInputValue: string) => {
-    setInputValue(newInputValue)
-    updateSearch(newInputValue)
-  }
+    setInputValue(newInputValue);
+    updateSearch(newInputValue);
+  };
 
   const handleOnChange = (event: any, newValue: string | null) => {
-    setValue(newValue)
-    updateSearch(newValue ?? '')
-  } 
+    setValue(newValue);
+    updateSearch(newValue ?? "");
+  };
 
   const filterOptions = createFilterOptions({
-    matchFrom: 'start',
+    matchFrom: "start",
     limit: 5,
-    stringify: (option: string) => option
-  })
+    stringify: (option: string) => option,
+  });
 
-  return (   
+  return (
     <Box>
       <Autocomplete
         className={styles.searchField}
@@ -44,7 +49,7 @@ const SearchField = () => {
         onInputChange={handleOnInputChange}
       />
     </Box>
-  )  
-}
+  );
+};
 
-export default SearchField
+export default SearchField;

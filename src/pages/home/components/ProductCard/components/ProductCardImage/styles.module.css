@@ -1,0 +1,7 @@
+.productCardImage {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+  align-self: center;
+  mix-blend-mode: multiply;
+}

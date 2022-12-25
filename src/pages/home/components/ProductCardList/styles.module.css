@@ -1,7 +1,11 @@
 .productCardList {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 5px;
+  display: flex;
+  flex-direction: row;
+  align-content: flex-start;
+  flex-wrap: nowrap;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+  min-width: 100%;
+  flex-grow: 1;
 }

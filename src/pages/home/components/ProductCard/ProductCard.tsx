@@ -1,33 +1,34 @@
 import { IProduct } from "interfaces";
 import styles from "./styles.module.css";
-import { Link as RouterLink } from 'react-router-dom';
-import { Card, CardActionArea, CardActions } from "@mui/material";
+import { Box, Card } from "@mui/material";
 import ProductFavorite from "./components/ProductFavorite";
+import ProductCardTitle from "./components/ProductCardTitle";
+import ProductCardCategory from "./components/ProductCardCategory";
+import ProductCardRating from "./components/ProductCardRating";
+import ProductCardPrice from "./components/ProductCardPrice";
+import ProductCardImage from "./components/ProductCardImage";
+import { Link } from "react-router-dom";
 
-const ProductCard = ({
-  id,
-  title,
-  price,
-  description,
-  category,
-  image,
-  rating,
-}: IProduct) => (
-  <Card variant="outlined" className={styles.productCard}>
-    <CardActionArea component={RouterLink} to={'/details/' + id} sx={{ display: "grid", justifyItems: "center" }}>
-      <p className={styles.productCard_title}>{title}</p>
-      <div className={styles.productCard_priceInfo}>{category}</div>
-      <img className={styles.productCard_image} src={image} alt={title} />
-      <div className={styles.productCard_state}>
-        <span className={styles.productCard_priceInfo}>P:{price}$ </span>
-        <span className={styles.productCard_priceInfo}>R:{rating.rate} </span>
-        <span className={styles.productCard_priceInfo}>C:{rating.count} </span>
-      </div>
-    </CardActionArea>
-    <CardActions>
-      <ProductFavorite/>
-    </CardActions>
-  </Card>
-);
+const ProductCard = ({ id, title, price, category, image, rating }: IProduct) => {
+  return (
+    <Box sx={{ position: "relative" }}>
+      <Link to={"/details/" + id} style={{ textDecoration: "none" }}>
+        <Card
+          square={true}
+          variant="outlined"
+          className={styles.productCard}
+          sx={{ ":hover": { boxShadow: 5 } }}
+        >
+          <ProductCardTitle title={title} />
+          <ProductCardImage url={image} title={title} />
+          <ProductCardCategory title={category} />
+          <ProductCardRating rating={rating.rate} />
+          <ProductCardPrice price={price} />
+        </Card>
+      </Link>
+      <ProductFavorite />
+    </Box>
+  );
+};
 
 export default ProductCard;

@@ -1,15 +1,22 @@
-import React, { FunctionComponent, ReactNode} from 'react';
-import styles from './styles.module.css'
-import { classNames } from 'utils';
+import { FunctionComponent, ReactNode } from "react";
+import { Box } from "@mui/system";
+
 interface IProps {
-    className?:string,
-    children:ReactNode
-    size?:'xs' | 'sm' | 'md' | 'xl'
+  children: ReactNode;
 }
-const Container:FunctionComponent<IProps> = ({children, className='', size='xl'}) => {
-  
+
+const Container: FunctionComponent<IProps> = ({ children }) => {
   return (
-    <div className={classNames(styles.container, styles[size], className)}>{children}</div>
+    <Box
+      sx={{
+        display: "flex",
+        flexDirection: "column",
+        flexGrow: 1,
+        overflow: "auto",
+      }}
+    >
+      {children}
+    </Box>
   );
 };
 

@@ -1,5 +1,10 @@
-.app_layout_main{
-    min-height: 70vh;
-    padding-top: 50px;
-    padding-bottom: 50px;
+.appLayoutGrid {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  min-width: 250px;
+  height: 100vh;
 }

@@ -1,0 +1,6 @@
+.productCardTitle {
+  font-weight: bold;
+  text-align: center;
+  max-height: 45px;
+  min-height: 45px;
+}

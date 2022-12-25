@@ -1,19 +1,16 @@
-import { AppLayout } from 'components/Layouts'
-import Headline from 'components/Headline'
-import CartItemList from './components/ProductCardList'
-import SearchPanel from './components/SearchPanel'
-import hooks from 'hooks/useRenderingCounter'
+import { AppLayout } from "components/Layouts";
+import Headline from "components/Headline";
+import CartItemList from "./components/ProductCardList";
+import SearchPanel from "./components/SearchPanel";
 
-const Home = () => { 
-  const products = hooks.useProducts()
-  
+const Home = () => {
   return (
     <AppLayout>
-      <Headline title='Home' />
+      <Headline title="Home" />
       <SearchPanel />
-      <CartItemList products={products} />
+      <CartItemList />
     </AppLayout>
-  )
-}
+  );
+};
 
-export default Home
+export default Home;
