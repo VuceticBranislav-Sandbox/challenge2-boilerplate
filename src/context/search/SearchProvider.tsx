@@ -5,8 +5,8 @@ import { searchReducer } from "./SearchReducer";
 
 export type SearchContextProps = {
   searchState: ISearchData;
-  updateCategory: (category : string) => void;
-  updateSearch: (search : string) => void;
+  updateCategory: (category: string) => void;
+  updateSearch: (search: string) => void;
   updateRange: (range: number | number[]) => void;
   updateRangeLimit: (range: number) => void;
   updateSort: (range: string) => void;
@@ -16,10 +16,19 @@ const INITIAL_STATE: ISearchData = {
   priceMin: 0,
   priceMax: 1000,
   priceLimit: 1000,
-  category : 'All',
-  search: '',
-  sortType: ['By price asc', 'By price desc', 'By title asc', 'By title desc', 'By rating asc', 'By rating desc', 'By count asc', 'By count desc'],
-  sort: 'By price asc'
+  category: "All",
+  search: "",
+  sortType: [
+    "Price ⇧",
+    "Price ⇩",
+    "Title ⇧",
+    "Title ⇩",
+    "Rating ⇧",
+    "Rating ⇩",
+    "Count ⇧",
+    "Count ⇩",
+  ],
+  sort: "Price ⇧",
 };
 
 interface props {
@@ -27,42 +36,41 @@ interface props {
 }
 
 export const SearchProvider = ({ children }: props) => {
-  
   const [state, dispatch] = useReducer(searchReducer, INITIAL_STATE);
 
-  const updateCategory = (category : string) => {
+  const updateCategory = (category: string) => {
     dispatch({
-      type:'UpdateCategory',
-      payload: category
-    })
+      type: "UpdateCategory",
+      payload: category,
+    });
   };
 
-  const updateSearch = (search : string) => {
+  const updateSearch = (search: string) => {
     dispatch({
-      type:'UpdateSearch',
-      payload: search
-    })
+      type: "UpdateSearch",
+      payload: search,
+    });
   };
 
   const updateRange = (range: number | number[]) => {
     dispatch({
-      type:'UpdateRange',
-      payload: range
-    })
+      type: "UpdateRange",
+      payload: range,
+    });
   };
 
   const updateRangeLimit = (limit: number) => {
     dispatch({
-      type:'UpdateRangeLimit',
-      payload: limit
-    })
+      type: "UpdateRangeLimit",
+      payload: limit,
+    });
   };
 
   const updateSort = (sort: string) => {
     dispatch({
-      type:'UpdateSort',
-      payload: sort
-    })
+      type: "UpdateSort",
+      payload: sort,
+    });
   };
 
   return (
@@ -73,11 +81,10 @@ export const SearchProvider = ({ children }: props) => {
         updateSearch,
         updateRange,
         updateRangeLimit,
-        updateSort
+        updateSort,
       }}
     >
       {children}
     </SearchContext.Provider>
   );
-
 };

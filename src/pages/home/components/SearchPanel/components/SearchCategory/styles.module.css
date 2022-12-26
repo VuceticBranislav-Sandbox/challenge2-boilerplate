@@ -1,4 +1,9 @@
 .searchCategory {
-    margin: 5px;
-    padding: 5px;
+  min-width: 180px;
+  height: 40px;
+  text-transform: capitalize;
+}
+
+.searchCategory_menuItem {
+  text-transform: capitalize;
 }

@@ -1,1 +1,1 @@
-export { default } from './SearchCategory';
+export { default } from "./SearchCategory";

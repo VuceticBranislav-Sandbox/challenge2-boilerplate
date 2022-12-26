@@ -6,15 +6,14 @@ import SearchSlider from "./components/SearchSlider";
 import SearchSort from "./components/SearchSort";
 
 const SearchPanel = () => {
-
   return (
-    <Card variant="outlined" className={styles.searchPanel} >
-      <SearchSort/>
-      <SearchSlider />
+    <Card variant="outlined" className={styles.searchPanel}>
+      <SearchSort />
       <SearchCategory />
+      <SearchSlider />
       <SearchField />
     </Card>
-  );  
+  );
 };
 
 export default SearchPanel;

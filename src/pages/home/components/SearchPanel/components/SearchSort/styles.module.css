@@ -1,4 +1,9 @@
 .searchSort {
-    margin: 5px;
-    padding: 5px;
+  min-width: 180px;
+  height: 40px;
+  text-transform: capitalize;
+}
+
+.searchSort_menuItem {
+  text-transform: capitalize;
 }

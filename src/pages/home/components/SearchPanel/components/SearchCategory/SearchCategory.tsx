@@ -1,11 +1,5 @@
 import styles from "./styles.module.css";
-import {
-  Box,
-  InputLabel,
-  MenuItem,
-  Select,
-  SelectChangeEvent,
-} from "@mui/material";
+import { MenuItem, Select, SelectChangeEvent, Tooltip } from "@mui/material";
 import { useContext, useState } from "react";
 import { SearchContext } from "context/search/SearchContext";
 import homeHooks from "pages/home/useHomeHooks";
@@ -21,23 +15,23 @@ const SearchCategory = () => {
   };
 
   return (
-    <Box>
-      <InputLabel id="search-category-label">Category</InputLabel>
+    <Tooltip title="Filter by category">
       <Select
-        className={styles.searchField}
-        labelId="search-category-label"
-        id="search-category-select"
+        className={styles.searchCategory}
         value={value}
-        label="Category"
         onChange={handleChange}
       >
         {categories.map((x) => (
-          <MenuItem value={x} key={x}>
+          <MenuItem
+            value={x}
+            key={x}
+            className={styles.searchCategory_menuItem}
+          >
             {x}
           </MenuItem>
         ))}
       </Select>
-    </Box>
+    </Tooltip>
   );
 };
 

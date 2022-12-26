@@ -1,4 +1,22 @@
 .searchSlider {
-    margin: 5px;
-    padding: 5px;
+  margin-left: 10px;
+  margin-right: 10px;
+  align-self: center;
+  min-width: 120px;
+}
+
+.searchSlider_box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  min-width: 180px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.searchSlider_values {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
 }
