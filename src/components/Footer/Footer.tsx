@@ -1,12 +1,21 @@
-import React from "react";
 import styles from "./styles.module.css";
-import logo from "../../assets/images/LogoLevi.png";
+import { Box, Link, Typography } from "@mui/material";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
 
 const Footer = () => {
   return (
-    <footer className={styles.footer}>
-      <img src={logo} alt="logo" width="100" />
-    </footer>
+    <Box className={styles.footer}>
+      <Typography fontSize='inherit' color='inherit'>
+        Powered by Branislav Vucetic @ 2022
+      </Typography>
+      <Link underline="none" color="inherit" href='https://github.com/VuceticBranislav-Sandbox/challenge2-boilerplate/#' >
+        <GitHubIcon fontSize='inherit' color='inherit' sx={{paddingLeft: "10px"}}/>
+      </Link>
+      <Link underline="none" color="inherit" href='https://rs.linkedin.com/in/vuceticbranislav/#'>
+        <LinkedInIcon fontSize='inherit' color='inherit' sx={{paddingLeft: "10px"}}/>
+      </Link>
+    </Box>
   );
 };
 

@@ -1,0 +1,18 @@
+.bottomInfo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  background-color: #27334d;
+  color: white;
+}
+
+.bottomInfo_box {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: inherit;
+  background-color: inherit;
+  padding: 10px;
+}

@@ -14,14 +14,17 @@
   display: inline;
   background-color: red;
 }
+
 .logo_wrapp {
   max-width: 50px;
 }
+
 .nav_items {
   list-style: none;
   display: flex;
   margin: 0;
 }
+
 .nav_item {
   padding: 10px;
   margin-left: 5px;
