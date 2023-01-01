@@ -1,11 +1,15 @@
+import { Typography } from "@mui/material";
 import styles from "./styles.module.css";
 
-const ProductDetailsDescription = ({description}: {description: string}) => {
-
+const ProductDetailsDescription = ({
+  description,
+}: {
+  description: string;
+}) => {
   return (
-      <div className={styles.productDetailsDescription}>
-        {description}
-      </div>
+    <Typography fontSize="small" className={styles.productDetailsDescription}>
+      {description}
+    </Typography>
   );
 };
 

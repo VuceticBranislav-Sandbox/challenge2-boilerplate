@@ -1,8 +1,41 @@
 .productDetailsCard {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    flex-wrap: wrap;
-    padding: 5px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.productDetailsCard_content {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 5px;
+}
+
+.productDetailsCard_leftPanel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.productDetailsCard_rightPanel {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: normal;
+}
+
+.productDetailsCard_divider {
+  padding: 5px;
+}
+
+.productDetailsCard_buttons {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
 }

@@ -42,8 +42,8 @@ const SearchSlider = () => {
           getAriaValueText={valuetext}
         />
         <Box className={styles.searchSlider_values}>
-          <Typography fontSize={10}>{value[0]}$</Typography>
-          <Typography fontSize={10}>{value[1]}$</Typography>
+          <Typography fontSize={'small'}>{value[0]}$</Typography>
+          <Typography fontSize={'small'}>{value[1]}$</Typography>
         </Box>
       </Box>
     </Tooltip>

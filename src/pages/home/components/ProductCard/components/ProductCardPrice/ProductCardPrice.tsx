@@ -9,10 +9,10 @@ const ProductCardPrice = ({ price }: { price: number }) => {
   return (
     <Box className={styles.productCardPrice}>
       <MonetizationOnTwoToneIcon fontSize='small' sx={{ color: green[300] }} />
-      <Typography fontSize={14}>
+      <Typography fontSize={'large'}>
         {num[0]}
       </Typography>
-      <Typography fontSize={11}>
+      <Typography fontSize={'small'}>
         {num[1]}
       </Typography>
     </Box>

@@ -1,4 +1,5 @@
 .productCardCategory {
   text-align: center;
+  font-style: italic;
   text-transform: capitalize;
 }

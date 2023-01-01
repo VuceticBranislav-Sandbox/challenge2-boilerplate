@@ -1,11 +1,27 @@
+import { Box, Rating, Typography } from "@mui/material";
 import styles from "./styles.module.css";
 
-const ProductDetailsRating = ({rate, count}: {rate: number, count:number}) => {
-
+const ProductDetailsRating = ({
+  rate,
+  count,
+}: {
+  rate: number;
+  count: number;
+}) => {
   return (
-      <div className={styles.productDetailsRating}>
-        Rate: {rate}, Count: {count}
-      </div>
+    <Box className={styles.productDetailsRating}>
+      <Rating
+        name="half-rating-read"
+        size="small"
+        defaultValue={0}
+        precision={0.1}
+        value={rate}
+        readOnly
+      />
+      <Typography fontSize={"small"} sx={{ marginLeft: "10px" }}>
+        {count} Reviews
+      </Typography>
+    </Box>
   );
 };
 

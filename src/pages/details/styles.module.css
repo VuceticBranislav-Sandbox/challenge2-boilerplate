@@ -1,4 +1,9 @@
 .productDetails {
-    margin: 5px;
-    padding: 5px;
+  margin: 5px;
+  padding: 5px;
+  flex-grow: 1;
+}
+
+.productDetails_progress {
+  width: 100%;
 }

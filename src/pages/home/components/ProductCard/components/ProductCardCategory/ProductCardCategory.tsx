@@ -3,7 +3,7 @@ import styles from "./styles.module.css";
 
 const ProductCardCategory = ({ title }: { title: string }) => {
   return (
-    <Typography fontSize={10} className={styles.productCardCategory}>
+    <Typography fontSize={'small'} className={styles.productCardCategory}>
       {title}
     </Typography>
   );

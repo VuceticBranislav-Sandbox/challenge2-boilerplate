@@ -3,6 +3,7 @@
     margin: 2.375rem 0;
     gap: 30px;
     grid-template-columns: 1fr 400px;  /* repeat(2,minmax(0,1fr)) */
+    flex-grow: 1;
 }
 .checkoutItems {
     margin-top: 30px;

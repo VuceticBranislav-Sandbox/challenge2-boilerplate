@@ -1,3 +1,12 @@
 .productDetailsCart {
-    padding: 5px;
+  padding: 5px;
+}
+
+.productDetailsCart_button {
+  height: 30px;
+}
+
+.productDetailsCart_menuItem {
+  text-transform: capitalize;
+  height: 25px;
 }

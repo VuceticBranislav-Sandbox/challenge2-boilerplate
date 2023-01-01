@@ -1,3 +1,4 @@
+import { Box, Divider } from "@mui/material";
 import { IProductDetails } from "interfaces";
 import ProductDetailsCart from "../ProductDetailsCart";
 import ProductDetailsCategory from "../ProductDetailsCategory";
@@ -17,20 +18,40 @@ const ProductDetailsCard = ({
   description,
   category,
   image,
-  rating
-  }:IProductDetails) => {
-
+  rating,
+}: IProductDetails) => {
   return (
-      <div className={styles.productDetailsCard}>
-        <ProductDetailsTitle title={title}/>
-        <ProductDetailsCategory category={category}/>
-        <ProductDetailsImage image={image}/>
-        <ProductDetailsPrice price={price}/>
-        <ProductDetailsRating rate={rating.rate} count={rating.count}></ProductDetailsRating>
-        <ProductDetailsDescription description={description}/>
-        <ProductDetailsFavorite/>
-        <ProductDetailsCart item={{id: id, title: title, price: price, image: image, quantity: 1}}/>
-      </div>
+    <Box className={styles.productDetailsCard}>
+      <ProductDetailsTitle title={title} />
+      <Box className={styles.productDetailsCard_content}>
+        <Box className={styles.productDetailsCard_leftPanel}>
+          <ProductDetailsImage image={image} />
+        </Box>
+        <Box className={styles.productDetailsCard_rightPanel}>
+          <ProductDetailsCategory category={category} />
+          <ProductDetailsRating
+            rate={rating.rate}
+            count={rating.count}
+          ></ProductDetailsRating>
+          <ProductDetailsPrice price={price} />
+          <Divider className={styles.productDetailsCard_divider} />
+          <ProductDetailsDescription description={description} />
+          <Divider className={styles.productDetailsCard_divider} />
+          <Box className={styles.productDetailsCard_buttons}>
+            <ProductDetailsFavorite />
+            <ProductDetailsCart
+              item={{
+                id: id,
+                title: title,
+                price: price,
+                image: image,
+                quantity: 1,
+              }}
+            />
+          </Box>
+        </Box>
+      </Box>
+    </Box>
   );
 };
 

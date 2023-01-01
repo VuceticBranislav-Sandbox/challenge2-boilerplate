@@ -1,3 +1,5 @@
 .productDetailsDescription {
-    padding: 5px;
+  padding: 5px;
+  align-self: center;
+  text-align: justify;
 }
