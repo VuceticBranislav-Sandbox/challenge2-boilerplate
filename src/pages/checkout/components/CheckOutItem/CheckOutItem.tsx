@@ -1,31 +1,34 @@
+import { Box, Typography } from "@mui/material";
 import { ICartItem } from "interfaces";
 import styles from "./styles.module.css";
 
-interface ICartProps extends ICartItem {
+interface ICheckOutProps extends ICartItem {
   removeHandler: (id: number) => void;
 }
 
-const CartItem = ({
+const CheckOutItem = ({
   id,
   title,
   price,
   quantity,
   image,
   removeHandler,
-}: ICartProps) => {
-  
+}: ICheckOutProps) => {
   return (
-    <div className={styles.checkOutItem}>
+    <Box className={styles.checkOutItem}>
       <img className={styles.checkOutItem_image} src={image} alt={title} />
-      <div className={styles.checkOutItem_info}>
-        <p className={styles.checkOutItem_title}>{title}</p>
-        <span className={styles.checkOutItem_priceInfo}>
+      <Box className={styles.checkOutItem_info}>
+        <Typography fontSize={"small"} className={styles.checkOutItem_title}>
+          {title}
+        </Typography>
+        <Typography fontSize={"small"} className={styles.checkOutItem_priceInfo}>
           ${price} x {quantity}
-        </span>
-      </div>
-      <div>sum: ${(price * quantity).toFixed(2)}</div>
-    </div>
+        </Typography>
+      </Box>
+      <Box />
+      <Typography> ${(price * quantity).toFixed(2)}</Typography>
+    </Box>
   );
 };
 
-export default CartItem;
+export default CheckOutItem;

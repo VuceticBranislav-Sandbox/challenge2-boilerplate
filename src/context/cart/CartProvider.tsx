@@ -67,7 +67,7 @@ export const CartProvider = ({ children }: props) => {
     if(state.items.length === 0) return;
     const index = state.items.findIndex((item) => item.id === id);
 
-    if (type === "plus" && state.items[index].quantity < 10) {
+    if (type === "plus" && state.items[index].quantity < 9) {
       state.items[index].quantity = state.items[index].quantity + 1;
     }
     if (type === "minus" && state.items[index].quantity > 1) {

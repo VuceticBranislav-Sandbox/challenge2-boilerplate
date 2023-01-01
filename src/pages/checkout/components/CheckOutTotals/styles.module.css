@@ -1,27 +1,29 @@
 .checkOutTotal {
-    margin-top: 30px;
-    padding:10px;
-    border: 1px solid #ccc;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: flex-start;
+  margin-top: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.checkOut_content {
-    width: 100%;
+
+.cart_content {
+  width: 100%;
 }
-.checkOut_title {
-    text-align: left;
+
+.subtotal_title {
+  text-align: left;
 }
+
 .table_body {
-    background-color: #ccc;
-    border: 1px solid #ccc;
-    border-collapse: collapse;
+  border-collapse: collapse;
 }
+
 .title_head {
-    border: none;  
-   border-color:#ccc;
-   width: 100%;
-   padding: 10px;
-   text-align: left;
+  border-color: #ccc;
+  width: 100%;
+  text-align: left;
+}
+
+.table_value {
+  margin: 1px;
 }

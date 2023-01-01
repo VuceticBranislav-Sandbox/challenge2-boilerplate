@@ -1,5 +1,6 @@
+import { Box, IconButton, Typography } from "@mui/material";
 import QuantityButton from "components/QuantityButton/QuantityButton";
-import SvgIcon from "components/SvgIcon";
+import DeleteForeverIcon from "@mui/icons-material/DeleteForever";
 import { ICartItem } from "interfaces";
 import styles from "./styles.module.css";
 
@@ -15,22 +16,30 @@ const CartItem = ({
   image,
   removeHandler,
 }: ICartProps) => {
-  
   return (
-    <div className={styles.cartItem}>
+    <Box className={styles.cartItem}>
       <img className={styles.cartItem_image} src={image} alt={title} />
-      <div className={styles.cartItem_info}>
-        <p className={styles.cartItem_title}>{title}</p>
-        <span className={styles.cartItem_priceInfo}>
+      <Box className={styles.cartItem_info}>
+        <Typography fontSize={"small"} className={styles.cartItem_title}>
+          {title}
+        </Typography>
+        <Typography fontSize={"small"} className={styles.cartItem_priceInfo}>
           ${price} x {quantity}
-        </span>
-      </div>
+        </Typography>
+      </Box>
       <QuantityButton quantity={quantity} id={id} />
-      <div>sum: ${(price * quantity).toFixed(2)}</div>
-      <span onClick={() => removeHandler(id)}>
-        <SvgIcon type="remove" width={20} height={20} color="#928F8F" />
-      </span>
-    </div>
+      <Typography> ${(price * quantity).toFixed(2)}</Typography>
+      <IconButton
+        aria-label="delete"
+        size="small"
+        onClick={() => removeHandler(id)}
+      >
+        <DeleteForeverIcon
+          className={styles.cartItem_remove}
+          fontSize="small"
+        />
+      </IconButton>
+    </Box>
   );
 };
 

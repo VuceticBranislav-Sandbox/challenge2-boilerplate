@@ -1,29 +1,28 @@
 .checkOutItem {
-    display: grid;
-    grid-template-columns: 70px auto 100px 95px 60px;
-    align-items: center;
-    padding: 10px;
-    border-top:1px solid #ccc;
+  display: grid;
+  grid-template-columns: 70px auto 100px 80px 30px;
+  align-items: center;
+  padding: 10px;
+  border-top: 1px solid #ccc;
 }
 
-.checkOutItem:last-child {
-    border-bottom:  1px solid #ccc;
-}
 .checkOutItem_image {
-   max-width: 50px;
+  max-width: 50px;
 }
+
 .checkOutItem_title {
-    font-size: 13px;
-    color: green;
-    margin:0;
+  font-size: 13px;
+  color: green;
+  margin: 0;
 }
+
 .checkOutItem_priceInfo {
-    font-size: 13px;
-    margin:0;
+  font-size: 13px;
+  margin: 0;
 }
 
 .checkOutTotal {
-    margin-top: 30px;
-    padding:10px;
-    border:1px solid #ccc
+  margin-top: 30px;
+  padding: 10px;
+  border: 1px solid #ccc;
 }
