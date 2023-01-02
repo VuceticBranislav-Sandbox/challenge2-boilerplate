@@ -1,15 +1,22 @@
-import React from 'react'
-import { AppLayout } from 'components/Layouts';
-import styles from './styles.module.css';
+import logo404 from "../../assets/images/logo_404.png";
+import { AppLayout } from "components/Layouts";
+import styles from "./styles.module.css";
+import { Box } from "@mui/material";
 
 const NotFound = () => {
   return (
     <AppLayout>
-      <div className={styles.login_page}>
-         <h1 className={styles.title}>404 not found</h1>
-      </div>
+      <Box className={styles.page404}>
+        <img
+          src={logo404}
+          className={styles.image}
+          height={"300px"}
+          width={"300px"}
+          alt="logo404"
+        />
+      </Box>
     </AppLayout>
-  )
-}
+  );
+};
 
 export default NotFound;
