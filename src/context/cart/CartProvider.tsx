@@ -3,8 +3,8 @@ import { CartContext } from "./CartContext";
 import { cartReducer } from "./CartReducer";
 import { ICartItem } from "interfaces";
 
-export type PaymentMathodType = "cash_delivery" | "bank_transfer" | "paypal";
-export const PaymentMathodEnym = ["cash_delivery", "bank_transfer", "paypal"];
+export type PaymentMathodType = "Cash Delivery" | "Bank Transfer" | "PayPal";
+export const PaymentMathodEnym = ["Cash Delivery", "Bank Transfer", "PayPal"];
 
 export interface CartState {
   items: ICartItem[];
@@ -13,7 +13,7 @@ export interface CartState {
   amount: number;
   paymentMethod: PaymentMathodType;
   flatRate: number;
-  shipping : number;
+  shipping: number;
   total: number;
 }
 
@@ -21,6 +21,7 @@ export type CartContextProps = {
   cartState: CartState;
   addToCart: (item: ICartItem, amount: number) => void;
   removeCartItem: (id: number) => void;
+  clearCart: () => void;
   updateQuantity: (id: number, type: "plus" | "minus") => void;
   updateQuantityAdv: (id: number, amount: number) => void;
   getCount: () => number;
@@ -31,10 +32,10 @@ const INITIAL_STATE: CartState = {
   tax: 20,
   shippingPrice: 5,
   amount: 0,
-  paymentMethod: "cash_delivery",
+  paymentMethod: "PayPal",
   flatRate: 0,
-  shipping : 0,
-  total: 0
+  shipping: 0,
+  total: 0,
 };
 
 interface props {
@@ -46,25 +47,29 @@ export const CartProvider = ({ children }: props) => {
 
   const addToCart = (item: ICartItem, amount: number) => {
     const product = state.items.find((pr) => pr.id === item.id);
-    if (product) {      
+    if (product) {
       updateQuantityAdv(item.id, amount);
-    } 
-    else {
+    } else {
       dispatch({
         type: "addToCart",
-        payload: {...item, quantity: amount},
-      });     
-      updateAmount();       
-    }    
+        payload: { ...item, quantity: amount },
+      });
+      updateAmount();
+    }
   };
 
   const removeCartItem = (id: number) => {
     dispatch({ type: "removeFromCart", payload: id });
     updateAmount();
   };
-  
+
+  const clearCart = () => {
+    dispatch({ type: "clearCart" });
+    updateAmount();
+  };
+
   const updateQuantity = (id: number, type: "plus" | "minus") => {
-    if(state.items.length === 0) return;
+    if (state.items.length === 0) return;
     const index = state.items.findIndex((item) => item.id === id);
 
     if (type === "plus" && state.items[index].quantity < 9) {
@@ -77,14 +82,15 @@ export const CartProvider = ({ children }: props) => {
     updateAmount();
   };
 
-  const updateQuantityAdv = (id: number, amount: number) => {   
-    if(state.items.length === 0) return;
+  const updateQuantityAdv = (id: number, amount: number) => {
+    if (state.items.length === 0) return;
     const index = state.items.findIndex((item) => item.id === id);
-    
+
     if (state.items[index].quantity + amount < 10) {
       state.items[index].quantity = state.items[index].quantity + amount;
+    } else {
+      state.items[index].quantity = 9;
     }
-    else {state.items[index].quantity = 9 }
 
     dispatch({ type: "updateQuantityAdv", payload: state.items });
     updateAmount();
@@ -104,9 +110,10 @@ export const CartProvider = ({ children }: props) => {
         cartState: state,
         addToCart,
         removeCartItem,
+        clearCart,
         updateQuantity,
         updateQuantityAdv,
-        getCount
+        getCount,
       }}
     >
       {children}

@@ -5,6 +5,7 @@ type CartAction =
   | { type: "getAll"; payload: ICartItem[] }
   | { type: "addToCart"; payload: ICartItem }
   | { type: "removeFromCart"; payload: number }
+  | { type: "clearCart" }
   | { type: "updateQuantity"; payload: ICartItem[] }
   | { type: "amountUpdate" }
   | { type: "updateQuantityAdv"; payload: ICartItem[] };
@@ -13,7 +14,6 @@ export const cartReducer = (
   state: CartState,
   action: CartAction
 ): CartState => {
-    
   switch (action.type) {
     case "getAll":
       return {
@@ -38,12 +38,18 @@ export const cartReducer = (
         ...state,
         items: action.payload,
       };
-      
+
+    case "clearCart":
+      return {
+        ...state,
+        items: [],
+      };
+
     case "amountUpdate":
       const total = state.items
         .reduce((acc, item) => acc + item.price * item.quantity, 0)
         .toFixed(2);
-      const flatRate = Number(total) * state.tax / 100;
+      const flatRate = (Number(total) * state.tax) / 100;
       const shipping = state.items.length * state.shippingPrice;
       const totalPrice = shipping + flatRate + Number(total);
       return {
@@ -51,7 +57,7 @@ export const cartReducer = (
         amount: Number(total),
         shipping: shipping,
         flatRate: flatRate,
-        total: totalPrice
+        total: totalPrice,
       };
 
     case "updateQuantityAdv":

@@ -25,8 +25,8 @@ const INITIAL_STATE: ISearchData = {
     "Title ⇩",
     "Rating ⇧",
     "Rating ⇩",
-    "Count ⇧",
-    "Count ⇩",
+    "Reviews ⇧",
+    "Reviews ⇩",
   ],
   sort: "Price ⇧",
 };

@@ -1,9 +1,13 @@
 import { Button } from "@mui/material";
 import styles from "./styles.module.css";
-import { useContext } from "react";
+import { FunctionComponent, useContext } from "react";
 import { CartContext } from "context/cart/CartContext";
 
-const CheckoutButton = () => {
+interface IProps {
+  onClickEvent: (event: React.MouseEvent<HTMLElement>) => void;
+}
+
+const CheckoutButton: FunctionComponent<IProps> = ({ onClickEvent }) => {
   const { cartState } = useContext(CartContext);
   const { items } = cartState;
 
@@ -11,8 +15,8 @@ const CheckoutButton = () => {
     <Button
       variant="contained"
       disabled={items.length === 0}
-      href="/#/checkout"
       className={styles.checkoutButton}
+      onClick={onClickEvent}
     >
       Proceed to Checkout
     </Button>

@@ -6,7 +6,7 @@ import { CartContext } from "context/cart/CartContext";
 import CartItem from "./components/CartItem";
 import CartTotals from "./components/CartTotals";
 import { Box } from "@mui/material";
-import CheckoutButton from "./components/CheckoutButton";
+import CheckoutForm from "pages/checkoutForm";
 
 const CartView = () => {
   const { cartState, removeCartItem } = useContext(CartContext);
@@ -23,9 +23,9 @@ const CartView = () => {
         </Box>
         <Box className={styles.cartTotalWrapp}>
           <CartTotals />
-          <CheckoutButton /> 
         </Box>
       </Box>
+      <CheckoutForm />
     </AppLayout>
   );
 };
