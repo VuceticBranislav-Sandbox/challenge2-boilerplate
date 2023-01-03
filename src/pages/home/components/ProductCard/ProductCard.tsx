@@ -9,24 +9,24 @@ import ProductCardPrice from "./components/ProductCardPrice";
 import ProductCardImage from "./components/ProductCardImage";
 import { Link } from "react-router-dom";
 
-const ProductCard = ({ id, title, price, category, image, rating }: IProduct) => {
+const ProductCard = (product: IProduct) => {
   return (
     <Box sx={{ position: "relative" }}>
-      <Link to={"/details/" + id} style={{ textDecoration: "none" }}>
+      <Link to={"/details/" + product.id} style={{ textDecoration: "none" }}>
         <Card
           square={true}
           variant="outlined"
           className={styles.productCard}
           sx={{ ":hover": { boxShadow: 5 } }}
         >
-          <ProductCardTitle title={title} />
-          <ProductCardImage url={image} title={title} />
-          <ProductCardCategory title={category} />
-          <ProductCardRating rating={rating.rate} />
-          <ProductCardPrice price={price} />
+          <ProductCardTitle title={product.title} />
+          <ProductCardImage url={product.image} title={product.title} />
+          <ProductCardCategory title={product.category} />
+          <ProductCardRating rating={product.rating.rate} />
+          <ProductCardPrice price={product.price} />
         </Card>
       </Link>
-      <ProductFavorite />
+      <ProductFavorite product={product} />
     </Box>
   );
 };

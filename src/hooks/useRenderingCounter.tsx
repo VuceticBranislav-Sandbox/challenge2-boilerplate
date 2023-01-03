@@ -1,9 +1,9 @@
-import { IProductDetails } from "interfaces";
+import { IProduct } from "interfaces";
 import { useEffect, useState } from "react";
 import productServices from "services/product.services";
 
 const useProductDetails = (id: string | undefined) => {
-  const [product, setProduct] = useState<IProductDetails>();
+  const [product, setProduct] = useState<IProduct>();
 
   useEffect(() => {
     (async () => {

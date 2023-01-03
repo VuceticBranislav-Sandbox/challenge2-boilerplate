@@ -1,18 +1,24 @@
 import { memo, useContext } from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
-import SvgIcon from "components/SvgIcon";
+import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "context/cart/CartContext";
+import { Badge, IconButton } from "@mui/material";
 
 const CarBadge = () => {
   const { getCount } = useContext(CartContext);
 
   return (
     <Link to={"/cart"}>
-      <span className={styles.cart_badge}>
-        <SvgIcon type="cart" className={styles.cart_icon} />
-        <span className={styles.cart_items_number}>{getCount()}</span>
-      </span>
+      <IconButton className={styles.cart_badge}>
+        <Badge
+          badgeContent={getCount()}
+          color="primary"
+          className={styles.wishlist_items_number}
+        >
+          <ShoppingCartIcon className={styles.cart_icon} />
+        </Badge>
+      </IconButton>
     </Link>
   );
 };

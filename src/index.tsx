@@ -7,6 +7,7 @@ import { CounterProvider } from "./context/counter/CounterProvider";
 import { SearchProvider } from "./context/search/SearchProvider";
 import App from "./App";
 import "./index.css";
+import { WishlistProvider } from "context/wishlist/WishlistProvider";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -18,7 +19,9 @@ root.render(
       <CounterProvider>
         <CartProvider>
           <SearchProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </SearchProvider>
         </CartProvider>
       </CounterProvider>

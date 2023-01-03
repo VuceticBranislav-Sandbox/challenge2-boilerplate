@@ -1,4 +1,4 @@
-import { ISearchData } from "interfaces";
+import { IProps, ISearchData } from "interfaces";
 import { useReducer } from "react";
 import { SearchContext } from "./SearchContext";
 import { searchReducer } from "./SearchReducer";
@@ -31,11 +31,7 @@ const INITIAL_STATE: ISearchData = {
   sort: "Price ⇧",
 };
 
-interface props {
-  children: JSX.Element;
-}
-
-export const SearchProvider = ({ children }: props) => {
+export const SearchProvider = ({ children }: IProps) => {
   const [state, dispatch] = useReducer(searchReducer, INITIAL_STATE);
 
   const updateCategory = (category: string) => {

@@ -1,7 +1,7 @@
 import { useReducer } from "react";
 import { CartContext } from "./CartContext";
 import { cartReducer } from "./CartReducer";
-import { ICartItem } from "interfaces";
+import { ICartItem, IProps } from "interfaces";
 
 export type PaymentMathodType = "Cash Delivery" | "Bank Transfer" | "PayPal";
 export const PaymentMathodEnym = ["Cash Delivery", "Bank Transfer", "PayPal"];
@@ -38,11 +38,7 @@ const INITIAL_STATE: CartState = {
   total: 0,
 };
 
-interface props {
-  children: JSX.Element;
-}
-
-export const CartProvider = ({ children }: props) => {
+export const CartProvider = ({ children }: IProps) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
 
   const addToCart = (item: ICartItem, amount: number) => {

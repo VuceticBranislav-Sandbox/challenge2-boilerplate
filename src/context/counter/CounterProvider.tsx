@@ -1,3 +1,4 @@
+import { IProps } from "interfaces";
 import { useReducer } from "react";
 import { CounterContext } from "./CounterContext";
 import { cartReducer } from "./CounterReducer";
@@ -17,11 +18,8 @@ const INITIAL_STATE: CounterState = {
   total: 0,
  
 };
-interface props {
-  children: JSX.Element;
-}
 
-export const CounterProvider = ({ children }: props) => {
+export const CounterProvider = ({ children }: IProps) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
 
  
