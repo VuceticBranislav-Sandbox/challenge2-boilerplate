@@ -13,7 +13,7 @@ const LanguageButton = () => {
   useEffect(() => {
     i18n.changeLanguage(language);
     languageContext.languageState=language;
-  }, [language, i18n]);
+  }, [language, i18n, languageContext]);
 
   return (
     <Tooltip title={t("Language")}>
