@@ -1,1 +1,1 @@
-export { default } from './SearchSlider';
+export { default } from "./SearchSlider";

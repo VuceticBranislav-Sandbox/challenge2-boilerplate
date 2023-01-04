@@ -1,4 +1,4 @@
-.darkMode_badge {
+.languageButton_badge {
   display: flex;
   align-items: center;
   border-radius: 50px;
@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-.darkMode_icon {
-  height: 25px;
-  width: 25px;
+.languageButton_flag {
+  width: 1em;
+  height: 1em;
 }

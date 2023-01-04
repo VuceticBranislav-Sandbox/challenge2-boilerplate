@@ -8,12 +8,14 @@ import {
 import { useContext, useState } from "react";
 import { SearchContext } from "context/search/SearchContext";
 import homeHooks from "pages/home/useHomeHooks";
+import { useTranslation } from "react-i18next";
 
 const SearchField = () => {
   const autocomplete = homeHooks.useAutocomplete();
   const { searchState, updateSearch } = useContext(SearchContext);
   const [value, setValue] = useState<string | null>(searchState.search);
   const [inputValue, setInputValue] = useState<string>(searchState.search);
+  const { t } = useTranslation();
 
   const handleOnInputChange = (event: any, newInputValue: string) => {
     setInputValue(newInputValue);
@@ -32,7 +34,7 @@ const SearchField = () => {
   });
 
   return (
-    <Tooltip title="Search">
+    <Tooltip title={t("Search")}>
       <Autocomplete
         fullWidth
         size="small"
@@ -42,7 +44,7 @@ const SearchField = () => {
         getOptionLabel={(option) => option}
         filterOptions={filterOptions}
         freeSolo
-        renderInput={(params) => <TextField {...params} label="Search" />}
+        renderInput={(params) => <TextField {...params} label={t("Search")} />}
         value={value}
         onChange={handleOnChange}
         inputValue={inputValue}

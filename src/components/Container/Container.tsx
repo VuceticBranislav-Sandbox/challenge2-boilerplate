@@ -13,7 +13,7 @@ const Container: FunctionComponent<IProps> = ({ children }) => {
         flexDirection: "column",
         flexGrow: 1,
         overflow: "auto",
-        backgroundColor: "paper.container"
+        backgroundColor: "paper.container",
       }}
     >
       {children}

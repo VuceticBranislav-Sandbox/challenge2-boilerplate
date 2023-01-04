@@ -4,12 +4,14 @@ import styles from "./styles.module.css";
 import ShoppingCartIcon from "@mui/icons-material/ShoppingCart";
 import { CartContext } from "context/cart/CartContext";
 import { Badge, IconButton, Tooltip } from "@mui/material";
+import { useTranslation } from "react-i18next";
 
 const CarBadge = () => {
   const { getCount } = useContext(CartContext);
+  const { t } = useTranslation();
 
   return (
-    <Tooltip title="Cart">
+    <Tooltip title={t("Cart")}>
       <Link to={"/cart"}>
         <IconButton className={styles.cart_badge}>
           <Badge

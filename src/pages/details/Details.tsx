@@ -5,14 +5,16 @@ import ProductDetailsCard from "./components/ProductDetailsCard";
 import { Box, LinearProgress } from "@mui/material";
 import hooks from "hooks/useRenderingCounter";
 import Headline from "components/Headline";
+import { useTranslation } from "react-i18next";
 
 const Details = () => {
-  let { id } = useParams();
+  const { id } = useParams();
   const product = hooks.useProductDetails(id);
+  const { t } = useTranslation();
 
   return (
     <AppLayout>
-      <Headline title="Details" />
+      <Headline title={t("Details")} />
       <Box className={styles.productDetails}>
         {product !== undefined ? (
           <ProductDetailsCard

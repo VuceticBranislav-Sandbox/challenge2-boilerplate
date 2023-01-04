@@ -1,5 +1,5 @@
 import Rating from "@mui/material/Rating";
-import StarIcon from '@mui/icons-material/Star';
+import StarIcon from "@mui/icons-material/Star";
 
 const ProductCardRating = ({ rating }: { rating: number }) => {
   return (

@@ -1,15 +1,5 @@
-import {
-  Box,
-  Button,
-  Grid,
-  MenuItem,
-  Modal,
-  Paper,
-  Select,
-  SelectChangeEvent,
-  TextField,
-  Typography,
-} from "@mui/material";
+import { Select, SelectChangeEvent, TextField, Paper } from "@mui/material";
+import { Box, Button, Grid, MenuItem, Modal, Typography } from "@mui/material";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import React, { useContext, useState } from "react";
 import YupValidation from "./components/YupValidation";
@@ -18,6 +8,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./styles.module.css";
 import CheckoutButton from "pages/checkoutForm/components/CheckoutButton";
 import { PaymentMathodEnym } from "context/cart/CartProvider";
+import { useTranslation } from "react-i18next";
 
 const CheckoutForm = () => {
   const [open, setOpen] = React.useState(false);
@@ -26,6 +17,7 @@ const CheckoutForm = () => {
   const { cartState, clearCart } = useContext(CartContext);
   const navigate = useNavigate();
   const [value, setValue] = useState<string>(cartState.paymentMethod);
+  const { t } = useTranslation();
 
   const handleChange = (event: SelectChangeEvent) => {
     setValue(event.target.value);
@@ -92,7 +84,7 @@ const CheckoutForm = () => {
                       <Form>
                         <Field
                           as={Select}
-                          label="Payment method"
+                          label={t("Payment method")}
                           name="paymentMethod"
                           fullWidth
                           variant="outlined"
@@ -115,7 +107,7 @@ const CheckoutForm = () => {
 
                         <Field
                           as={TextField}
-                          label="Name"
+                          label={t("Name")}
                           name="name"
                           fullWidth
                           variant="outlined"
@@ -143,7 +135,7 @@ const CheckoutForm = () => {
 
                         <Field
                           as={TextField}
-                          label="Phone Number"
+                          label={t("Phone Number")}
                           name="phoneNumber"
                           fullWidth
                           variant="outlined"
@@ -162,7 +154,7 @@ const CheckoutForm = () => {
                           color="primary"
                           fullWidth
                         >
-                          Submit
+                          {t("Submit")}
                         </Button>
                       </Form>
                     );

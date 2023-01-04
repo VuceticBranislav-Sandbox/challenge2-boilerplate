@@ -14,7 +14,7 @@ const AppLayout: React.FC<IProps> = ({ children }) => {
   return (
     <Box className={styles.appLayoutGrid}>
       <Header />
-      <Container>{[children, <BottomInfo key="keyBottomInfo"/>]}</Container>
+      <Container>{[children, <BottomInfo key="keyBottomInfo" />]}</Container>
       <Footer />
     </Box>
   );

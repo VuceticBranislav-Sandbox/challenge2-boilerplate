@@ -8,13 +8,9 @@ const ProductCardPrice = ({ price }: { price: number }) => {
 
   return (
     <Box className={styles.productCardPrice}>
-      <MonetizationOnTwoToneIcon fontSize='small' sx={{ color: green[300] }} />
-      <Typography fontSize={'large'}>
-        {num[0]}
-      </Typography>
-      <Typography fontSize={'small'}>
-        {num[1]}
-      </Typography>
+      <MonetizationOnTwoToneIcon fontSize="small" sx={{ color: green[300] }} />
+      <Typography fontSize={"large"}>{num[0]}</Typography>
+      <Typography fontSize={"small"}>{num[1]}</Typography>
     </Box>
   );
 };

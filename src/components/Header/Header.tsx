@@ -6,6 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../../assets/images/logo_transparent.png";
 import { Box } from "@mui/material";
 import DarkMode from "components/DarkMode";
+import LanguageButton from "components/LanguageButton";
 
 export const Header = () => {
   return (
@@ -18,6 +19,7 @@ export const Header = () => {
         </Box>
         <Box className="flex">
           <DarkMode />
+          <LanguageButton />
           <WishlistBadge />
           <CartBadge />
         </Box>

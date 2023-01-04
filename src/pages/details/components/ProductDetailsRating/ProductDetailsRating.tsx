@@ -1,6 +1,6 @@
 import { Box, Rating, Typography } from "@mui/material";
 import styles from "./styles.module.css";
-import StarIcon from '@mui/icons-material/Star';
+import StarIcon from "@mui/icons-material/Star";
 
 const ProductDetailsRating = ({
   rate,

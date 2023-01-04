@@ -2,6 +2,7 @@ import styles from "./styles.module.css";
 import { Box, Slider, Tooltip, Typography } from "@mui/material";
 import React, { useContext } from "react";
 import { SearchContext } from "context/search/SearchContext";
+import { useTranslation } from "react-i18next";
 
 function valuetext(value: number) {
   return `${value}$`;
@@ -13,7 +14,8 @@ const SearchSlider = () => {
     searchState.priceMin,
     searchState.priceMax,
   ]);
-
+  const { t } = useTranslation();
+  
   const handleChange = (event: Event, newValue: number | number[]) => {
     setValue(newValue as number[]);
   };
@@ -27,7 +29,7 @@ const SearchSlider = () => {
   };
 
   return (
-    <Tooltip title="Price range">
+    <Tooltip title={t("Price range")}>
       <Box className={styles.searchSlider_box}>
         <Slider
           size="small"
@@ -42,8 +44,8 @@ const SearchSlider = () => {
           getAriaValueText={valuetext}
         />
         <Box className={styles.searchSlider_values}>
-          <Typography fontSize={'small'}>{value[0]}$</Typography>
-          <Typography fontSize={'small'}>{value[1]}$</Typography>
+          <Typography fontSize={"small"}>{value[0]}$</Typography>
+          <Typography fontSize={"small"}>{value[1]}$</Typography>
         </Box>
       </Box>
     </Tooltip>

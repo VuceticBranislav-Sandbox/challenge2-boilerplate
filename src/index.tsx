@@ -1,14 +1,15 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
 import reportWebVitals from "./reportWebVitals";
+import ToggleColorMode from "components/ToggleColorMode";
 import { HashRouter } from "react-router-dom";
 import { CartProvider } from "./context/cart/CartProvider";
-import { CounterProvider } from "./context/counter/CounterProvider";
 import { SearchProvider } from "./context/search/SearchProvider";
-import App from "./App";
-import "./index.css";
 import { WishlistProvider } from "context/wishlist/WishlistProvider";
-import ToggleColorMode from "components/ToggleColorMode";
+import { LanguageProvider } from "context/language/LanguageProvider";
+import App from "./App";
+import "./i18n";
+import "./index.css";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -17,8 +18,8 @@ const root = ReactDOM.createRoot(
 root.render(
   <React.StrictMode>
     <ToggleColorMode>
-      <HashRouter>
-        <CounterProvider>
+      <LanguageProvider>
+        <HashRouter>
           <CartProvider>
             <SearchProvider>
               <WishlistProvider>
@@ -26,8 +27,8 @@ root.render(
               </WishlistProvider>
             </SearchProvider>
           </CartProvider>
-        </CounterProvider>
-      </HashRouter>
+        </HashRouter>
+      </LanguageProvider>
     </ToggleColorMode>
   </React.StrictMode>
 );

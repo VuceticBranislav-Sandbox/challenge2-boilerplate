@@ -7,14 +7,16 @@ import CartItem from "./components/CartItem";
 import CartTotals from "./components/CartTotals";
 import { Box } from "@mui/material";
 import CheckoutForm from "pages/checkoutForm";
+import { useTranslation } from "react-i18next";
 
 const CartView = () => {
   const { cartState, removeCartItem } = useContext(CartContext);
   const { items } = cartState;
+  const { t } = useTranslation();
 
   return (
     <AppLayout>
-      <Headline title="Cart" />
+      <Headline title={t("Cart")} />
       <Box className={styles.cartPage}>
         <Box className={styles.cartItems}>
           {items.map((item) => (
