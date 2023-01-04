@@ -1,16 +1,16 @@
 {
   "files": {
-    "main.css": "/challenge2-boilerplate/static/css/main.88abf69c.css",
-    "main.js": "/challenge2-boilerplate/static/js/main.50929e22.js",
+    "main.css": "/challenge2-boilerplate/static/css/main.816c37f4.css",
+    "main.js": "/challenge2-boilerplate/static/js/main.4b70edbd.js",
     "static/js/787.9da8a74a.chunk.js": "/challenge2-boilerplate/static/js/787.9da8a74a.chunk.js",
     "static/media/logo_404.png": "/challenge2-boilerplate/static/media/logo_404.5683165122a6e42b339a.png",
     "index.html": "/challenge2-boilerplate/index.html",
-    "main.88abf69c.css.map": "/challenge2-boilerplate/static/css/main.88abf69c.css.map",
-    "main.50929e22.js.map": "/challenge2-boilerplate/static/js/main.50929e22.js.map",
+    "main.816c37f4.css.map": "/challenge2-boilerplate/static/css/main.816c37f4.css.map",
+    "main.4b70edbd.js.map": "/challenge2-boilerplate/static/js/main.4b70edbd.js.map",
     "787.9da8a74a.chunk.js.map": "/challenge2-boilerplate/static/js/787.9da8a74a.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.88abf69c.css",
-    "static/js/main.50929e22.js"
+    "static/css/main.816c37f4.css",
+    "static/js/main.4b70edbd.js"
   ]
 }
