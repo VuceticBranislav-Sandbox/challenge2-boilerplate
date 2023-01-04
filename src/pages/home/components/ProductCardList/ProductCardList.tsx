@@ -8,7 +8,10 @@ const ProductCardList = () => {
   const products: IProduct[] = homeHooks.useProducts();
 
   return (
-    <Box className={styles.productCardList}>
+    <Box
+      className={styles.productCardList}
+      sx={{ backgroundColor: "paper.background" }}
+    >
       {products.map((product: IProduct) => (
         <ProductCard
           key={product.id.toString()}

@@ -1,6 +1,5 @@
 .cartPage {
   display: grid;
-  margin: 2.375rem 0;
   gap: 30px;
   grid-template-columns: repeat(2, minmax(0, 1fr));
   flex-grow: 1;

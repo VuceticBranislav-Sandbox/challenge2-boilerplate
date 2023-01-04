@@ -31,7 +31,7 @@ export interface ISearchData {
 
 export interface IWishlistData {
   wishlist: IProduct[];
-};
+}
 
 export interface IProps {
   children: JSX.Element;

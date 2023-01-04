@@ -1,5 +1,10 @@
 import styles from "./styles.module.css";
-import { Autocomplete, TextField, createFilterOptions } from "@mui/material";
+import {
+  Autocomplete,
+  TextField,
+  createFilterOptions,
+  Tooltip,
+} from "@mui/material";
 import { useContext, useState } from "react";
 import { SearchContext } from "context/search/SearchContext";
 import homeHooks from "pages/home/useHomeHooks";
@@ -27,21 +32,23 @@ const SearchField = () => {
   });
 
   return (
-    <Autocomplete
-    fullWidth
-      size="small"
-      className={styles.searchField}
-      disablePortal
-      options={autocomplete}
-      getOptionLabel={(option) => option}
-      filterOptions={filterOptions}
-      freeSolo
-      renderInput={(params) => <TextField {...params} label="Search" />}
-      value={value}
-      onChange={handleOnChange}
-      inputValue={inputValue}
-      onInputChange={handleOnInputChange}
-    />
+    <Tooltip title="Search">
+      <Autocomplete
+        fullWidth
+        size="small"
+        className={styles.searchField}
+        disablePortal
+        options={autocomplete}
+        getOptionLabel={(option) => option}
+        filterOptions={filterOptions}
+        freeSolo
+        renderInput={(params) => <TextField {...params} label="Search" />}
+        value={value}
+        onChange={handleOnChange}
+        inputValue={inputValue}
+        onInputChange={handleOnInputChange}
+      />
+    </Tooltip>
   );
 };
 

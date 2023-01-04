@@ -1,4 +1,5 @@
 import Rating from "@mui/material/Rating";
+import StarIcon from '@mui/icons-material/Star';
 
 const ProductCardRating = ({ rating }: { rating: number }) => {
   return (
@@ -9,6 +10,7 @@ const ProductCardRating = ({ rating }: { rating: number }) => {
       precision={0.1}
       value={rating}
       readOnly
+      emptyIcon={<StarIcon fontSize="inherit" />}
     />
   );
 };

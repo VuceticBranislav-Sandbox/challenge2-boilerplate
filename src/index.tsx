@@ -8,6 +8,7 @@ import { SearchProvider } from "./context/search/SearchProvider";
 import App from "./App";
 import "./index.css";
 import { WishlistProvider } from "context/wishlist/WishlistProvider";
+import ToggleColorMode from "components/ToggleColorMode";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -15,17 +16,19 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <HashRouter>
-      <CounterProvider>
-        <CartProvider>
-          <SearchProvider>
-            <WishlistProvider>
-              <App />
-            </WishlistProvider>
-          </SearchProvider>
-        </CartProvider>
-      </CounterProvider>
-    </HashRouter>
+    <ToggleColorMode>
+      <HashRouter>
+        <CounterProvider>
+          <CartProvider>
+            <SearchProvider>
+              <WishlistProvider>
+                <App />
+              </WishlistProvider>
+            </SearchProvider>
+          </CartProvider>
+        </CounterProvider>
+      </HashRouter>
+    </ToggleColorMode>
   </React.StrictMode>
 );
 

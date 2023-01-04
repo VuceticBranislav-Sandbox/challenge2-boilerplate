@@ -22,20 +22,20 @@ const CartTotals = () => {
         <Table aria-label="top-table">
           <TableHead>
             <TableRow>
-              <TableCell className={styles.subtotal_title}>SUBTOTAL</TableCell>
-              <TableCell>${cartState.amount.toFixed(2)}</TableCell>
+              <TableCell className={styles.subtotal_title} sx={{borderBottom:"gray solid 1px"}}>SUBTOTAL</TableCell>
+              <TableCell sx={{borderBottom:"gray solid 1px"}}>${cartState.amount.toFixed(2)}</TableCell>
             </TableRow>
           </TableHead>
           <TableBody className={styles.table_body}>
             <TableRow>
-              <TableCell className={styles.title_head}>Shipping</TableCell>
-              <TableCell className={styles.table_value}>
+              <TableCell className={styles.title_head } sx={{borderBottom:"gray solid 1px"}}>Shipping</TableCell>
+              <TableCell className={styles.table_value} sx={{borderBottom:"gray solid 1px"}}>
                 ${cartState.shipping.toFixed(2)}
               </TableCell>
             </TableRow>
             <TableRow>
-              <TableCell className={styles.title_head}>Flat rate:</TableCell>
-              <TableCell className={styles.table_value}>
+              <TableCell className={styles.title_head} sx={{borderBottom:"gray solid 1px"}}>Flat rate:</TableCell>
+              <TableCell className={styles.table_value} sx={{borderBottom:"gray solid 1px"}}>
                 ${cartState.flatRate.toFixed(2)}
               </TableCell>
             </TableRow>
@@ -45,9 +45,9 @@ const CartTotals = () => {
       <Table aria-label="bottom-table">
         <TableFooter>
           <TableRow>
-            <TableCell className={styles.title_head}>TOTAL</TableCell>
+            <TableCell className={styles.title_head} sx={{borderBottom:"gray solid 1px"}}>TOTAL</TableCell>
             <TableCell
-              sx={{ fontSize: "15px", fontWeight: "bold", color: "Black" }}
+              sx={{ fontSize: "15px", fontWeight: "bold", color: "Black", borderBottom:"gray solid 1px"}}
             >
               ${cartState.total.toFixed(2)}
             </TableCell>
