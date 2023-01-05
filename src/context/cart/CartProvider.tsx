@@ -1,7 +1,8 @@
-import { useReducer } from "react";
+import { useEffect, useReducer } from "react";
 import { CartContext } from "./CartContext";
 import { cartReducer } from "./CartReducer";
 import { ICartItem, IProps } from "interfaces";
+import getLocalStorage from "utils/localStorage";
 
 export type PaymentMathodType = "Cash Delivery" | "Bank Transfer" | "PayPal";
 export const PaymentMathodEnym = ["Cash Delivery", "Bank Transfer", "PayPal"];
@@ -28,7 +29,7 @@ export type CartContextProps = {
 };
 
 const INITIAL_STATE: CartState = {
-  items: [],
+  items: getLocalStorage("cartStorage"),
   tax: 20,
   shippingPrice: 5,
   amount: 0,
@@ -40,6 +41,10 @@ const INITIAL_STATE: CartState = {
 
 export const CartProvider = ({ children }: IProps) => {
   const [state, dispatch] = useReducer(cartReducer, INITIAL_STATE);
+
+  useEffect(() => {
+    localStorage.setItem("cartStorage", JSON.stringify(state.items));
+  }, [state.items]);
 
   const addToCart = (item: ICartItem, amount: number) => {
     const product = state.items.find((pr) => pr.id === item.id);

@@ -1,9 +1,8 @@
-
-export default function getLocalStorage() {
-  const wishlistStorage = localStorage.getItem("wishlistStorage");
-  if (wishlistStorage === null || wishlistStorage === undefined) {
+export default function getLocalStorage(storageName: string) {
+  const storage = localStorage.getItem(storageName);
+  if (storage === null || storage === undefined) {
     return [];
   } else {
-    return JSON.parse(wishlistStorage);
+    return JSON.parse(storage);
   }
 }

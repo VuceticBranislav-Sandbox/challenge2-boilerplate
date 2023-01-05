@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { AppLayout } from "components/Layouts";
 import Headline from "components/Headline";
 import styles from "./styles.module.css";
@@ -13,6 +13,10 @@ const CartView = () => {
   const { cartState, removeCartItem } = useContext(CartContext);
   const { items } = cartState;
   const { t } = useTranslation();
+
+  useEffect(() => {
+    localStorage.setItem("cartStorage", JSON.stringify(items));
+  }, [items]);
 
   return (
     <AppLayout>

@@ -12,7 +12,7 @@ export type WishlistContextProps = {
 };
 
 const INITIAL_STATE: IWishlistData = {
-  wishlist: getLocalStorage(),
+  wishlist: getLocalStorage("wishlistStorage"),
 };
 
 export const WishlistProvider = ({ children }: IProps) => {
